@@ -33,17 +33,18 @@ async function editMovie(req, res) {
         var modified = false;
 
         for (var i = 0; i < allMovies.length; i++) {
-            var curcurrResource = allMovies[i];
-            if (curcurrResource.id == id) {
-                allMovies[i].movieImage = movieImage;
-                allMovies[i].movieTitle = movieTitle;
-                allMovies[i].movieDescription = moviedescription;
-                allMovies[i].movieDirectors = moviedirectors;
-                allMovies[i].movieWriters = moviewriters;
-                allMovies[i].movieStars = moviestars;
+    var curcurrResource = allMovies[i];
+    if (curcurrResource.id == id) {
+        allMovies[i].movieImage = movieImage;
+        allMovies[i].movieTitle = movieTitle;
+        allMovies[i].movieDescription = moviedescription;
+        allMovies[i].movieDirectors = moviedirectors;
+        allMovies[i].movieWriters = moviewriters;
+        allMovies[i].movieStars = moviestars;
+        modified = true;
+    }
+}
 
-                modified = true;
-            }
         }
 
         if (!movieTitle) {
