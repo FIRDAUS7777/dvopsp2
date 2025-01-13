@@ -69,7 +69,7 @@ jobs:
       - name: Start the Server
         run: |
           npm start &  # Starts the backend server in the background
-          npx wait-on http://localhost:6060  # Wait for the server to be ready
+          npx wait-on http://localhost:5050  # Wait for the server to be ready
 
       - name: Run Cypress Frontend Tests
         run: npx cypress run --browser chrome --headless
