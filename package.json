@@ -1,7 +1,7 @@
 {
-  "name": "resource-mgmt",
+  "name": "dvopsp2",
   "version": "1.0.0",
-  "description": "This is a reference project for the DVOPS subject.",
+  "description": "This is a project for the DVOPS subject.",
   "main": "index.js",
   "scripts": {
     "backend-test": "nyc --nycrc-path .nycrc-backend mocha",
