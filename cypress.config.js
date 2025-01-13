@@ -62,6 +62,6 @@ module.exports = defineConfig({
     },
 
     // Set baseUrl after the server has started or fallback to localhost
-    baseUrl: baseUrl || "http://localhost:3000", // Default to localhost if baseUrl isn't set yet
+    baseUrl: baseUrl || "http://localhost:5050", // Default to localhost if baseUrl isn't set yet
   },
 });
