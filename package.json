@@ -4,11 +4,11 @@
   "description": "This is a project for the DVOPS subject.",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "backend-test": "nyc --nycrc-path .nycrc-backend mocha",
     "frontend-instrument": "xcopy public instrumented /I /E /Y & nyc instrument public instrumented",
     "frontend-test": "rmdir -r .nyc_output & nyc --nycrc-path .nycrc-frontend cypress run",
-    "start": "node index.js",
-    "dev": "nodemon index.js"
+    "build": "echo 'No build step for backend' && cp -r public dist"
   },
   "keywords": [],
   "author": "",
