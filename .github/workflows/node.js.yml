@@ -21,6 +21,9 @@ jobs:
     - name: Install dependencies for the project
       run: npm install
 
+    - name: Fix permissions for nyc
+      run: chmod +x ./node_modules/.bin/nyc
+
     - name: Run backend tests
       run: npx nyc --nycrc-path .nycrc-backend mocha
 
