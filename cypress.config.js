@@ -39,7 +39,7 @@ module.exports = defineConfig({
               reject(data);
             });
 
-            // Timeout to handle if server doesn't start
+            // Timeout to handle if the server doesn't start
             setTimeout(() => {
               if (!baseUrl) {
                 reject("Server failed to start or didn't output the expected base URL.");
@@ -61,8 +61,7 @@ module.exports = defineConfig({
       return config;
     },
 
-    // Other optional Cypress settings can go here
+    // Set baseUrl after the server has started or fallback to localhost
     baseUrl: baseUrl || "http://localhost:3000", // Default to localhost if baseUrl isn't set yet
   },
 });
-
