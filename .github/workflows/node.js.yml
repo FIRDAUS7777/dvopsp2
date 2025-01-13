@@ -65,14 +65,14 @@ jobs:
 
       - name: Install xvfb
         run: sudo apt-get update && sudo apt-get install -y xvfb
-
+  
       - name: Fix permissions for Cypress
         run: chmod +x ./node_modules/.bin/cypress
 
       - name: Start the Server
         run: |
           npm start &  # Starts the backend server in the background
-          npx wait-on http://localhost:5050  # Wait for the server to be ready
+          npx wait-on http://localhost:5050  # Ensure the server is up before running Cypress tests
 
       - name: Run Cypress Frontend Tests with xvfb-run
         run: xvfb-run npx cypress run --browser chrome --headless
