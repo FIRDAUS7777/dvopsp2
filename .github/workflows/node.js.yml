@@ -25,7 +25,8 @@ jobs:
       run: chmod +x ./node_modules/.bin/nyc
 
     - name: Run backend tests
-      run: npx nyc --nycrc-path .nycrc-backend mocha
+      run: npx nyc --nycrc-path .nycrc-backend ./node_modules/.bin/mocha
+
 
     - name: Instrument frontend code (Optional)
       run: npx nyc instrument public instrumented
