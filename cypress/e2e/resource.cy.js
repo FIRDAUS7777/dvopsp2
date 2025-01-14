@@ -3,15 +3,15 @@ describe('Resource Management Frontend', () => {
 
   // Start the server before any tests run and capture the base URL
   before(() => {
-    cy.task('startServer').then((url) => {
-      baseUrl = url; // Store the base URL
+    cy.task('startServer').then(() => { // Removed capturing the URL directly
+      baseUrl = 'http://localhost:5050'; // Updated to the expected default server URL
       cy.visit(baseUrl);
     });
   });
 
   // Stop the server after all tests are completed
   after(() => {
-    cy.task('stopServer');
+    cy.task('stopServer'); // Task to stop the server after tests
   });
 
   // Test for adding a new resource
@@ -32,7 +32,7 @@ describe('Resource Management Frontend', () => {
 
   // Test for viewing all resources
   it('should view all resources', () => {
-    cy.visit(baseUrl);
+    cy.visit(baseUrl); // Ensure visiting the base URL
     // Ensure that the resource we just added is visible in the table
     cy.get('#tableContent').contains('Test Resource').should('exist');
   });
