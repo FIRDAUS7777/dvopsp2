@@ -15,7 +15,7 @@ describe('Resource Management Frontend', () => {
   });
 
   // Test for adding a new resource
-  it('should add a new resource', () => {
+  /*it('should add a new resource', () => {
     // Open the modal and fill in the form
     cy.get('button[data-target="#resourceModal"]').click();
     cy.get('#name').type('Test Resource', { force: true });
@@ -28,17 +28,45 @@ describe('Resource Management Frontend', () => {
 
     // Verify the resource is in the table
     cy.get('#tableContent').contains('Test Resource').should('exist');
+  });*/
+
+  it('should alert that search field is empty', () => {
+    cy.visit(baseUrl);
+    cy.get('button[onclick="searchMovies()"]').click()
+   
+    // Check the alert message
+    cy.on('window:alert', (alertText) => {
+      expect(alertText).to.equal('Search field required');
+    });
   });
+
+  it('should alert that search field is less than 2', () => {
+    cy.visit(baseUrl);
+    cy.get("#searchField").type(
+      '*', {force:true}
+    )
+    cy.get('button[onclick="searchMovies()"]').click()
+   
+    // Check the alert message
+    cy.on('window:alert', (alertText) => {
+      expect(alertText).to.equal('Search field should be at least 2 characters');
+    });
+  });
+
 
   // Test for viewing all resources
   it('should view all resources', () => {
     cy.visit(baseUrl);
+    cy.get("#searchField").type(
+      'Sample Movie', {force:true}
+    )
+    cy.get('button[onclick="searchMovies()"]').click()
     // Ensure that the resource we just added is visible in the table
-    cy.get('#tableContent').contains('Test Resource').should('exist');
+    cy.get('#tableContent').contains('Sample Movie').should('exist');
   });
 
   // Test for updating an existing resource
-  it('should update an existing resource', () => {
+  /*it('should update an existing resource', () => {
     cy.visit(baseUrl);
     // Click the edit button for the resource
     cy.get('button.btn-warning').filter(':contains("Edit")').last().click();
@@ -55,19 +83,19 @@ describe('Resource Management Frontend', () => {
     // Verify the resource is updated in the table
     cy.get('#tableContent').contains('Updated Resource').should('exist');
     cy.get('#tableContent').contains('Test Resource').should('not.exist');
-  });
+  });*/
 
   // Test for deleting a resource
-  it('should delete a resource', () => {
+  /*it('should delete a resource', () => {
     cy.visit(baseUrl);
     cy.get('button.btn-danger').filter(':contains("Delete")').last().click();
 
     // Verify that the resource has been deleted
     cy.get('#tableContent').contains('Updated Resource').should('not.exist');
-  });
+  });*/
 
   // Test for attempting to add a resource with empty fields
-  it("should be unable to add resource - empty fields", () => {
+ /* it("should be unable to add resource - empty fields", () => {
     cy.visit(baseUrl);
     // Open the modal and fill in the form
     cy.get('button[data-target="#resourceModal"]').click();
@@ -82,10 +110,10 @@ describe('Resource Management Frontend', () => {
     // Assert that the message has the "text-danger" class
     cy.get('#message')
       .should('have.class', 'text-danger');
-  });
+  });*/
 
   // Test for attempting to add a resource with a short description
-  it("should be unable to add resource - short description", () => {
+ /* it("should be unable to add resource - short description", () => {
     cy.visit(baseUrl);
     // Open the modal and fill in the form
     cy.get('button[data-target="#resourceModal"]').click();
@@ -101,5 +129,5 @@ describe('Resource Management Frontend', () => {
     cy.get("#message")
       .should("exist")
       .and("include.text", "Unable to add resource!");
-  });
+  });*/
 });

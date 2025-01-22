@@ -1,11 +1,1 @@
-[
-    {
-        "movieImage": "new_image_url",
-        "movieTitle": "Updated Movie Title",
-        "movieDescription": "Updated movie description",
-        "movieDirectors": "Updated Director",
-        "movieWriters": "Updated Writer",
-        "movieStars": "Updated Stars",
-        "id": "1731983610108878"
-    }
-]
+[{"movieImage":"new_image_url","movieTitle":"Updated Movie Title","movieDescription":"Updated movie description","movieDirectors":"Updated Director","movieWriters":"Updated Writer","movieStars":"Updated Stars","id":"1731983610108878"},{"movieImage":"image_url","movieTitle":"Sample Movie","movieDescription":"Description","movieDirectors":"Director","movieWriters":"Writer","movieStars":"Stars","id":"1737510712102701"},{"movieImage":"image_url","movieTitle":"Sample Movie","movieDescription":"Description","movieDirectors":"Director","movieWriters":"Writer","movieStars":"Stars","id":"1737510759167587"}]

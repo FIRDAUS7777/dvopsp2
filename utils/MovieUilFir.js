@@ -14,9 +14,9 @@ async function viewResources(req, res) {
     const id = req.params.search;
 
     const owner = req.body.owner;
-    if (id.length == 0) {
-      return res.status(500).json({ message: "Search field required" });
-    }
+    // if (id.length == 0) {
+    //   return res.status(500).json({ message: "Search field required" });
+    // }
 
     if (id.length < 2) {
         return res.status(500).json({ message: "Search field should be at least 2 characters" });

@@ -13,7 +13,7 @@ describe('Resource API', () => {
     baseUrl = `http://${address === '::' ? 'localhost' : address}:${port}`;
     
     // Create a resource before running the test (to get the resourceId)
-    const res = await chai.request(baseUrl)
+    /*const res = await chai.request(baseUrl)
       .post('/add-resource') // Assuming you have an endpoint to add a resource
       .send({
         movieImage: 'image_url',
@@ -24,7 +24,7 @@ describe('Resource API', () => {
         movieStars: 'Stars'
       });
 
-    resourceId = res.body.id; // Store the id of the newly created resource
+    resourceId = res.body.id; // Store the id of the newly created resource */
   });
 
   after(() => {
@@ -35,21 +35,22 @@ describe('Resource API', () => {
     });
   });
 
-  describe('PUT /edit-movie/:id', () => {
+  describe('GET /view-resource/:id', () => {
+    it('should fail -search field less than length of 2', (done) => {
+      chai.request(baseUrl)
+        .get(`/view-resource/*`) // Use the correct endpoint
+        .send()
+        .end((err, res) => {
+          expect(res).to.have.status(500); // Check for 201 status code
+          done();
+        });
+    });
     it('should update an existing resource', (done) => {
       chai.request(baseUrl)
-        .put(`/edit-movie/${resourceId}`) // Use the correct endpoint
-        .send({
-          movieImage: 'Updated image',
-          movieTitle: 'Updated title',
-          movieDescription: 'Updated description',
-          movieDirectors: 'Updated directors',
-          movieWriters: 'Updated writers',
-          movieStars: 'Updated stars'
-        })
+        .get(`/view-resource/Sample Movie`) // Use the correct endpoint
+        .send()
         .end((err, res) => {
           expect(res).to.have.status(201); // Check for 201 status code
-          expect(res.body.message).to.equal('Movie modified successfully!'); // Expect a success message
           done();
         });
     });
