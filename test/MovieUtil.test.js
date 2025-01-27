@@ -45,7 +45,7 @@ describe('Resource API', () => {
           done();
         });
     });
-    it('should update an existing resource', (done) => {
+    it('should find an existing resource', (done) => {
       chai.request(baseUrl)
         .get(`/view-resource/Sample Movie`) // Use the correct endpoint
         .send()
